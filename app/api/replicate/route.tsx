@@ -20,7 +20,7 @@ export async function POST(req: Request) {
             }
         )
         */
-        return NextResponse.json({ res: "hello" });
+        return NextResponse.json({ data: "hello from replicate post" });
         //return NextResponse.json(output);
     } catch(err) {
         console.log("REPLICATE API CALL ERROR");

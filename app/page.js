@@ -1,31 +1,18 @@
-import { Image } from "next/image";
-import { ClientButton } from "../components/clientbutton";
+"use client";
 
-import axios from "axios";
+import React, { useState } from 'react';
+
+import { Image } from "next/image";
+import ClientButton from "../components/clientbutton";
 
 export default function Home() {
-    
-    const userMessage = {
-        role: "user",
-        imgcontent: "rainbow fox"
-    };
-    
-    async function replicateCall() {
-        const replicateResponse = await axios.post("http://localhost:3000/api/replicate", userMessage);
-        return replicateResponse;
-    };
-    
-    const img = replicateCall();
-    
-    console.log("IMAGE RECEIVED");
-    console.log(img);
-    //console.log(img["data"]);
-    //console.log(img);
+    const [replicateResponse, setReplicateResponse] = useState('');
+
     return (
         <div>
             <p>Hi</p>
-                <ClientButton></ClientButton>
-            <p></p>
+            <ClientButton replicateResponse={replicateResponse} setReplicateResponse={setReplicateResponse}/>
+            <p>replicate: {replicateResponse}</p>
         </div>
     );
 };
