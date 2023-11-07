@@ -14,7 +14,7 @@ const ClientButton = ({ replicateResponse, setReplicateResponse }: ClientButtonP
     const buttonClick = async () => {
         const userMessage = {
             role: "user",
-            content: "green rabbit",
+            content: "red elf",
         };
         const replicateRes = await axios.post("/api/replicate", userMessage);
         //const resJson = await replicateRes.json();
